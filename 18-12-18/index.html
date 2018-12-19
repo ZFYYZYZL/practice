@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>	</title>
+	<link rel="stylesheet" href="index.css">
+</head>
+<body>
+<!-- 参考学习自 思否 上的前端每日实战：158# 视频演示如何用纯 CSS 创作一个雨伞 toggle 控件  作者是comehope-->
+<!-- 修改：使用js控制伞的打开与关闭 -->
+<!-- 修改后问题：伞关闭时视觉体验不好 对伪类元素未添加过渡 -->
+<!-- figure 规定独立的流内容 -->
+	<figure class="umbrella" id="umbrella">
+		<div class="canopy" id="canopy"></div>
+		<div class="shaft"></div>
+	</figure>
+</body>
+<script>
+// 使用js控制伞的打开与关闭
+var oUmbrella = document.getElementById('umbrella');
+var oCanopy = document.getElementById('canopy');
+// 判断状态
+var off = false;
+	oUmbrella.onclick = function() {
+		if(!off){
+			oUmbrella.style.transform="rotate(0deg)";
+         oCanopy.style.transform="scale(1, 1)";
+         oCanopy.classList.add("canopyed");
+         off=!off;
+	     }else{
+	     	off=!off;
+	     	oUmbrella.style.transform="rotate(-30deg)";
+	         oCanopy.style.transform="scale(0.08, 4)";
+	         oCanopy.classList.remove("canopyed");
+	     }
+         
+     }
+
+</script>
+</html>
